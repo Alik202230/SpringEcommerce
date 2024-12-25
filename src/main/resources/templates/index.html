@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/index.css">
+  <title>Main</title>
+</head>
+<body>
+  <div th:if="${user != null}"> Hello <span th:text="${user.firstName}"></span> <a href="/logout">Logout</a> </div><br>
+  <div th:if="${user == null}">Welcome guest | <a href="/loginPage">Login</a> </div>
+  <div class="header">
+    <h2>home </h2>
+    <a href="/users/register">Register</a>
+  </div>
+  <ul>
+    <li th:each="category : ${categories}">
+      <a th:text="${category.name}" th:href="@{/products/category(name=${category.name})}"></a>
+    </li>
+  </ul>
+</body>
+</html>
