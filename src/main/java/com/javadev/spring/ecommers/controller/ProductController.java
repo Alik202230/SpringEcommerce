@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.javadev.spring.ecommers.model.Category;
 import com.javadev.spring.ecommers.model.Product;
@@ -35,8 +36,8 @@ public class ProductController {
   }
 
   @PostMapping("/add")
-  public String addProduct(@ModelAttribute Product product) {
-    this.productService.addProduct(product);
+  public String addProduct(@ModelAttribute Product product, MultipartFile multipartFile) {
+    this.productService.addProduct(product, multipartFile);
     return "redirect:/admin";
   }
 

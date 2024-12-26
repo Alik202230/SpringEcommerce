@@ -7,7 +7,7 @@
 </head>
 <body>
   <h2>Product Page</h2>
-  <form action="/products/add" method="post">
+  <form action="/products/add" method="post" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="title"/><br>
     <input type="number" name="price" placeholder="price"/><br>
     <input type="number" name="qty" placeholder="quantity" /><br>
@@ -20,6 +20,7 @@
               th:text="${category.name}"
       ></option>
     </select>
+    <input type="file"name="image" placeholder="image"/>
     <button type="submit">Add Product</button>
   </form>
 </body>
