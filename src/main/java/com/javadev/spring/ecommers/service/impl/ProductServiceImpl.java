@@ -45,5 +45,18 @@ public class ProductServiceImpl implements ProductService{
         .orElseThrow(() -> new RuntimeException("Category not found"));
     return this.productRepository.findProductsByCategoryName(category.getName());
   }
+
+  @Override
+  public void editProduct(Product product) {
+    this.productRepository.save(product);
+  }
+
+  @Override
+  public void deleteProduct(int id) {
+    Optional<Product> optionalProduct = this.productRepository.findById(id);
+    if (optionalProduct.isPresent()) {
+      this.productRepository.deleteById(optionalProduct.get().getId());
+    }
+  }
   
 }

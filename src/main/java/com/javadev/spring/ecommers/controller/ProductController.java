@@ -47,4 +47,26 @@ public class ProductController {
     return "products";
   }
 
+  @GetMapping("/edit")
+  public String editProductPage(@RequestParam int id, ModelMap modelMap) {
+    Product productById = this.productService.getProductById(id).get();
+    if (productById != null) {
+      modelMap.put("product", productById);
+      return "admin/editProduct";
+    }
+    return "redirect:/admin";
+  }
+
+  @PostMapping("/edit")
+  public String editProduct(@ModelAttribute Product product) {
+    this.productService.editProduct(product);
+    return "redirect:/admin";
+  }
+
+  @GetMapping("/delete")
+  public String deleteProduct(@RequestParam int id) {
+    this.productService.deleteProduct(id);
+    return "redirect:/admin";
+  }
+
 }

@@ -1,10 +1,12 @@
 package com.javadev.spring.ecommers.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.javadev.spring.ecommers.model.Role;
 import com.javadev.spring.ecommers.model.User;
 import com.javadev.spring.ecommers.repository.UserRepository;
 import com.javadev.spring.ecommers.service.UserService;
@@ -33,5 +35,10 @@ public class UserServiceImpl implements UserService{
   @Override
   public Optional<User> getUserByEmail(String email) {
    return this.userRepository.findByEmail(email);
+  }
+
+  @Override
+  public List<User> getAllUsersExceptAdmin(Role role) {
+    return this.userRepository.findAllByRole(role);
   }
 }

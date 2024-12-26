@@ -28,7 +28,7 @@ public class MainController {
     CurrentUser currentUser = AuthenticationUtil.getAuthenticatedUser.get();
     Set<Category> categories = this.categoryService.getAllCategories();
 
-    if (currentUser != null && currentUser.getUser() != null) modelMap.put("user", currentUser);
+    if (currentUser != null && currentUser.getUser() != null) modelMap.put("user", currentUser.getUser());
     if (categories != null) modelMap.put("categories", categories);
 
     return "index";
