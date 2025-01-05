@@ -29,7 +29,7 @@ public class CategoryServiceImpl implements CategoryService{
   public Optional<Category> getCategoryById(int id) {
     Optional<Category> categoryOptional = this.categoryRepository.findById(id);
     if (categoryOptional.isPresent()) return categoryOptional;
-    return null;
+    return Optional.empty();
   }
 
   @Override
