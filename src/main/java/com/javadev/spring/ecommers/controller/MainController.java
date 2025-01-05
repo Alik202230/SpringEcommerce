@@ -1,5 +1,6 @@
 package com.javadev.spring.ecommers.controller;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -75,4 +76,24 @@ public class MainController {
     return null;
   }
 
+
+  // SAME AS ABOVE
+
+
+  // @GetMapping(value = "/get-image", produces = MediaType.IMAGE_JPEG_VALUE)
+  // public @ResponseBody byte[] getImage(@RequestParam("img") String image) throws IOException{
+  //   File file = new File(uploadPath, image);
+  //   if (file.exists()) {
+  //     try(InputStream inputStream = new FileInputStream(file); 
+  //         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+  //       byte[] buffer = new byte[8192];
+  //       int bytesRead;
+  //       while ((bytesRead = inputStream.read(buffer)) != 1) {
+  //         outputStream.write(buffer, 0, bytesRead);
+  //       }
+  //       return outputStream.toByteArray();
+  //     }
+  //   }
+  //   return new byte[0];
+  // }
 }

@@ -9,7 +9,7 @@ import com.javadev.spring.ecommers.service.security.CurrentUser;
 
 public abstract class AuthenticationUtil {
 
-  public static Supplier<CurrentUser> getAuthenticatedUser = () -> {
+  public static final Supplier<CurrentUser> getAuthenticatedUser = () -> {
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     Object principal = authentication.getPrincipal();
     if (principal instanceof CurrentUser currentUser) {
