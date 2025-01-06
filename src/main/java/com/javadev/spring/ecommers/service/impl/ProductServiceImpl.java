@@ -1,6 +1,7 @@
 package com.javadev.spring.ecommers.service.impl;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,9 +51,13 @@ public class ProductServiceImpl implements ProductService{
     return producOptional;
   }
 
+  // This approach is not recommended. Provided code is just for demostration purpose
   @Override
   public List<Product> getAllProducts() {
-    return this.productRepository.findAll();
+    Iterable<Product> all = this.productRepository.findAll();
+    List<Product> products = new ArrayList<>();
+    all.forEach(product -> products.add(product));
+    return products;
   }
 
   @Override
