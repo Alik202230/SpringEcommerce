@@ -50,7 +50,6 @@ public class ProductServiceImpl implements ProductService{
     return producOptional;
   }
 
-  // This approach is not recommended. Provided code is just for demostration purpose
   @Override
   public List<Product> getAllProducts() {
     return this.productRepository.findAll();
