@@ -33,7 +33,7 @@ public class AdminController {
   }
 
   @GetMapping
-  public String getMethodName(ModelMap modelMap) {
+  public String getAdminPage(ModelMap modelMap) {
     List<Product> products = this.productService.getAllProducts();
     Set<Category> categories = this.categoryService.getAllCategories();
     List<User> users = this.userService.getAllUsersExceptAdmin(Role.USER);
